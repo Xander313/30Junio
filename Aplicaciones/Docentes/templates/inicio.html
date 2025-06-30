@@ -15,7 +15,6 @@
             <th>HORARIOS</th>
             <th>SUELDO</th>
             <th>REQUISITOS</th>
-            <th>LOGO</th>
             <th>ACCIONES</th>
         </tr>
     </thead>
@@ -28,15 +27,7 @@
             <td>{{cagoTemporal.horario}}</td>
             <td>{{cagoTemporal.sueldo}}</td>
             <td>{{cagoTemporal.requisitos}}</td>
-            <td>
-                {% if cagoTemporal.logo %}
-                    <img src="{{cagoTemporal.logo.url }}" height="auto" width="100px" alt="">
-                {% else %}
-                    No tiene logo
-                
-                
-                {% endif%}
-            </td>
+
             <td>
                 <a href="/editarCargo/{{cagoTemporal.id}}" class="btn btn-outline-warning">Editar <i class="fa fa-pen"></i></a>
 
@@ -52,8 +43,6 @@
     </tbody>
 </table> 
 
-
-for
 
 
 
