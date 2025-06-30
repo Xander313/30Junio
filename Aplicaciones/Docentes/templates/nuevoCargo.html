@@ -1,0 +1,65 @@
+
+{%extends "./plantilla.html"%}
+{%block content%}
+
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6 bg-light">
+        <h1 style="text-align: center;">Nuevo cargo</h1>
+
+        <form action="/guardarCargo/" autocomplete="off" id="formNuevoCargo" enctype="multipart/form-data" class="form-control" method="post" style=" display: flex; flex-direction: column; padding-bottom: 20px; gap: 10px">
+            {% csrf_token %}
+            <label for="">Nombre</label>
+            <input class="form-control" placeholder="esto se salio de control" type="text" name="nombre" id="nombre">
+            <label for="">funciones</label>
+            <textarea class="form-control" placeholder="Los caminos de la vida no son como yo pensaba" name="funciones" id="funciones"></textarea>
+            <label for="">horario</label>
+            <textarea class="form-control" placeholder="oyga mire vea vengase al combo para que vea" name="horario" id="horario" rows="5"></textarea>
+            <label for="">requisitos</label>
+            <textarea class="form-control" placeholder="Los caminos de la vida no son como yo pensaba" name="requisitos" id="requisitos" rows="5" ></textarea>
+            <label for="">Sueldo</label>
+            <input class="form-control" type="text" placeholder="Usted va aganar una miseria el resto de su vida" name="sueldo" id="sueldo" >
+            <label for="logo">Logo</label>
+            <input class="form-control" type="file" placeholder="Suba una foto de prefil" name="logo" id="logo" >
+            <button class="btn btn-outline-success" style="margin-bottom: 7px;" type="submit">Guardar Cargo <i class="fa-solid fa-floppy-disk"></i></button>
+            <a class="btn btn-outline-danger"  href="/">Cancelar <i class="fa-solid fa-times"></i></a>
+        </form>
+    </div>
+    <div class="col-md-3"></div>
+</div>
+
+
+
+<!-- embeber codgio js en html -->
+ 
+<script>
+    $("#formNuevoCargo").validate({
+        rules:{
+            nombre:{
+                required:true,
+                minlength:5,
+                maxlength:20
+            },
+            requisitos:{
+                required:true
+            },
+            sueldo:{
+                required:true,
+                number:true,
+                min:200,
+                max:5000
+                
+            }
+        },
+        messages:{
+            nombre:{
+                required:"Ingrese un nombre",
+                minlength:"No debe ser menos a 5 caracteres",
+                maxlength:"No debe ser mayor a 20 caracteres"
+            },
+        }
+    
+    });
+</script>
+
+{%endblock%}

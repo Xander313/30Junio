@@ -1,0 +1,42 @@
+{% extends "./plantilla.html" %}
+{% block content %}
+
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6 bg-light">
+        <h1 style="text-align: center;">Edición del cargo</h1>
+
+        <form action="{% url 'procesarEdicionCargo' cargoEditar.id %}" method="post" style="display: flex; flex-direction: column; padding-bottom: 20px;">
+            {% csrf_token %}
+            <!--aqui pamos el id a traves de un hidden xd-->
+            <input type="hidden" name="id" value="{{ cargoEditar.id }}">
+            
+            <label for="nombre">Nombre</label>
+            <input class="form-control" type="text" name="nombre" id="nombre" value="{{ cargoEditar.nombre }}">
+            
+            <label for="funciones">Funciones</label>
+            <textarea class="form-control" name="funciones" id="funciones">{{ cargoEditar.funciones }}</textarea>
+            
+            <label for="horario">Horario</label>
+            <textarea class="form-control" name="horario" id="horario" rows="5">{{ cargoEditar.horario }}</textarea>
+            
+            <label for="requisitos">Requisitos</label>
+            <textarea class="form-control" name="requisitos" id="requisitos" rows="5">{{ cargoEditar.requisitos }}</textarea>
+            
+            <label for="sueldo">Sueldo</label>
+            <input class="form-control" type="text" name="sueldo" id="sueldo" value="{{ cargoEditar.sueldo }}">
+            
+
+            <label for="logo">Logo</label>
+            <input class="form-control" type="file" name="logo" id="logo" >
+            
+            <button class="btn btn-outline-warning" style="margin-bottom: 7px;" type="submit">Realizar cambios <i class="fa fa-pen"></i></button>
+            <a class="btn btn-outline-danger" href="/">Cancelar <i class="fa fa-times"></i></a>
+        </form>
+        
+    </div>
+    <div class="col-md-3"></div>
+</div>
+
+{% endblock %}
+
