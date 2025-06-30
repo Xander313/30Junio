@@ -19,7 +19,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Security
 SECRET_KEY = os.getenv('SECRET_KEY')  # Asegúrate de configurarla en Render
 DEBUG = False
-ALLOWED_HOSTS = ['30junio.onrender.com', 'localhost']  # Agregué localhost para desarrollo
+ALLOWED_HOSTS = ['30junio-zzci.onrender.com', 'localhost']  # Agregué localhost para desarrollo
 
 # Apps
 INSTALLED_APPS = [
